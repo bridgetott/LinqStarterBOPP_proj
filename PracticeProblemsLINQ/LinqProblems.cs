@@ -18,14 +18,15 @@ namespace PracticeProblemsLINQ
         public static List<string> RunProblem1(List<string> words)
         {
             //code
-            
-            var wordLinqQuery = from word in words where word.Contains("th") select word;
+            var thwords = new List<string>(); //make new list to return line 18
+            var wordLinqQuery = from word in words where word.Contains("th") select word; //using SQL to query a local var word inside our list of words to pull out only "th" words
 
             foreach( var word in wordLinqQuery)
             {
+                thwords.Add(word);
                 Console.WriteLine(word);
-            }
-            return words;
+            }            
+            return thwords;
             
 
 
