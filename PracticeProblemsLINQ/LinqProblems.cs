@@ -71,18 +71,27 @@ namespace PracticeProblemsLINQ
         }
         #endregion
 
-        //#region Problem 4
-        ////(5 points) Problem 4
-        ////Using LINQ, write a method that takes in a list of customers and returns the customer who has an id of 3. 
-        ////Then, update that customer's first name and last name to completely different names and return the newly updated customer from the method.
-        //public static Customer RunProblem4(List<Customer> customers)
-        //{
-        //    //code
+        #region Problem 4
+        //(5 points) Problem 4
+        //Using LINQ, write a method that takes in a list of customers and returns the customer who has an id of 3. 
+        //Then, update that customer's first name and last name to completely different names and return the newly updated customer from the method.
+        public static Customer RunProblem4(List<Customer> customers)
+        {
+            //code
+            var customerIdThreeList = customers.Where(I => I.Id == 3).ToList(); //using a WHERE clause, pulled customer with ID of 3 from the list of customers
+            Customer customerIdThree= customerIdThreeList[0]; // extract customer with ID of 3 from the new list
+            customerIdThree.FirstName = "Bridget"; //renamed customer with ID of 3
+            customerIdThree.LastName = "Pascarella";
+            Console.WriteLine(customerIdThree.FirstName + " " + customerIdThree.LastName);
 
-        //    //return
 
-        //}
-        //#endregion
+
+            return customerIdThree;
+
+            //return
+
+        }
+        #endregion
 
         //#region Problem 5
         ////(5 points) Problem 5
