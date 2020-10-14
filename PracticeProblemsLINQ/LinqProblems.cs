@@ -79,7 +79,7 @@ namespace PracticeProblemsLINQ
         {
             //code
             var customerIdThreeList = customers.Where(I => I.Id == 3).ToList(); //using a WHERE clause, pulled customer with ID of 3 from the list of customers
-            Customer customerIdThree= customerIdThreeList[0]; // extract customer with ID of 3 from the new list
+            Customer customerIdThree = customerIdThreeList[0]; // extract customer with ID of 3 from the new list
             customerIdThree.FirstName = "Bridget"; //renamed customer with ID of 3
             customerIdThree.LastName = "Pascarella";
             Console.WriteLine(customerIdThree.FirstName + " " + customerIdThree.LastName);
@@ -93,20 +93,58 @@ namespace PracticeProblemsLINQ
         }
         #endregion
 
-        //#region Problem 5
-        ////(5 points) Problem 5
-        ////Using LINQ, write a method that calculates the class grade average after dropping the lowest grade for each student.
-        ////The method should take in a list of strings of grades (e.g., one string might be "90,100,82,89,55"), 
-        ////drops the lowest grade from each string, averages the rest of the grades from that string, then averages the averages.
-        ////Expected output: 86.125
-        //public static double RunProblem5(List<string> classGrades)
-        //{
-        //    //code
+        #region Problem 5
+        //(5 points) Problem 5
+        //Using LINQ, write a method that calculates the class grade average after dropping the lowest grade for each student.
+        //The method should take in a list of strings of grades (e.g., one string might be "90,100,82,89,55"), 
+        //drops the lowest grade from each string, averages the rest of the grades from that string, then averages the averages.
+        //Expected output: 86.125
+        public static double RunProblem5(List<string> classGrades)
+        {
+            //code
+            double numbers = 0;//placeholder
+            double averageStack = 0;
+            foreach (string i in classGrades)
+            {
+                List<double> extractedNumberList;
+                extractedNumberList = new List<double>();
+                List<double> sortedExtractedNumberList;
+                sortedExtractedNumberList = new List<double>();
+                string pattern = @",";
+                double numbersBeforeAvg = 0;
 
-        //    //return
+                String[] elements = System.Text.RegularExpressions.Regex.Split(i, pattern);
+                foreach (var element in elements)
+                {
+                    double elementAsANumber = Convert.ToDouble(element);
+                    extractedNumberList.Add(elementAsANumber);
+                    Console.WriteLine(elementAsANumber);
+                }
+                sortedExtractedNumberList = extractedNumberList.OrderBy(number => number).ToList();
+                foreach (var item in sortedExtractedNumberList)
+                {
+                    Console.WriteLine(item);
+                }
+                sortedExtractedNumberList.RemoveAt(0);
+                foreach (var item in sortedExtractedNumberList)
+                {
+                    numbersBeforeAvg += item;
+                }
+                double average = numbersBeforeAvg / sortedExtractedNumberList.Count;
+                averageStack += average;
+            }
+            double averageOfAverages = averageStack / classGrades.Count;
 
-        //}
-        //#endregion
+            Console.WriteLine(averageOfAverages);
+            return averageOfAverages;
+
+            //return
+
+        }
+
+        // select classGrades from list where = 
+        // select classGrades from list ORDER BY 
+        #endregion
 
         //#region Bonus Problem 1
         ////(5 points) Bonus Problem 1
