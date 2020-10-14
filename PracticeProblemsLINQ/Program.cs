@@ -16,8 +16,8 @@ namespace PracticeProblemsLINQ
             //LinqProblems.RunProblem1(words);
 
             //Problem 2
-            List<string> names = new List<string>() { "Mike", "Brad", "Nevin", "Ian", "Mike" };
-            LinqProblems.RunProblem2(names);
+            //List<string> names = new List<string>() { "Mike", "Brad", "Nevin", "Ian", "Mike" };
+            //LinqProblems.RunProblem2(names);
 
 
             //Problem 3 & Problem 4
@@ -28,6 +28,7 @@ namespace PracticeProblemsLINQ
                 new Customer(3, "Jason", "Ryan"),
                 new Customer(4, "Dan", "Laffey")
             };
+            LinqProblems.RunProblem3(customers);
 
 
             //Problem 5

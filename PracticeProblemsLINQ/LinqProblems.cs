@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -42,7 +43,7 @@ namespace PracticeProblemsLINQ
         {
 
             //code
-            var thingWeNeed = names.Distinct().ToList();           
+            var thingWeNeed = names.Distinct().ToList();  //using the Distinct keyword from SQL to only allow one instance of each list item "name" to be added to list thingWeNeed         
             return thingWeNeed;
 
             
@@ -53,17 +54,22 @@ namespace PracticeProblemsLINQ
         }
         #endregion
 
-        //#region Problem 3
-        ////(5 points) Problem 3
-        ////Using LINQ, write a method that takes in a list of customers and returns the lone customer who has the name of Mike. 
-        //public static Customer RunProblem3(List<Customer> customers)
-        //{
-        //    //code
+        #region Problem 3
+        //(5 points) Problem 3
+        //Using LINQ, write a method that takes in a list of customers and returns the lone customer who has the name of Mike. 
+        public static Customer RunProblem3(List<Customer> customers)
+        {
+            //code
+           
+            var customerMikeList = customers.Where(I => I.FirstName.Contains("Mike")).ToList(); // using a WHERE clause, pulled the customer named Mike from the list of customers and created a new list with only Mike
+            Customer customerMike = customerMikeList[0]; //extract customer Mike from the new list
 
-        //    //return
+            return customerMike;
 
-        //}
-        //#endregion
+            
+
+        }
+        #endregion
 
         //#region Problem 4
         ////(5 points) Problem 4
