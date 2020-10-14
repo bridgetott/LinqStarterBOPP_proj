@@ -11,8 +11,9 @@ namespace PracticeProblemsLINQ
         static void Main(string[] args)
         {
             //Problem 1
+            
             List<string> words = new List<string>() { "the", "bike", "this", "it", "tenth", "mathematics" };
-
+            LinqProblems.RunProblem1(words);
 
             //Problem 2
             List<string> names = new List<string>() { "Mike", "Brad", "Nevin", "Ian", "Mike" };
