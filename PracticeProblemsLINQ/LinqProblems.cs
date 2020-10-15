@@ -142,8 +142,7 @@ namespace PracticeProblemsLINQ
 
         }
 
-        // select classGrades from list where = 
-        // select classGrades from list ORDER BY 
+       
         #endregion
 
         //#region Bonus Problem 1
